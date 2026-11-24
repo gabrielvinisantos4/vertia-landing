@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VÉRTIA · Dra. Andrea Tadeu</title>
+<meta name="description" content="VÉRTIA — Mentoria VIP em Facetas de Resina Composta com a Dra. Andrea Tadeu. A evolução da estética natural.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: luxo silencioso — editorial, feminino, preciso; poucas cores, muito ar.
+IDEA: a página se comporta como o caderno impresso da mentoria visto através de vidro: folhas creme, fio dourado, lâminas de vidro flutuando.
+PICTURE: fotografia da Dra. Andrea em arco orgânico, protagonista; fios dourados desenhados pelo scroll.
+COLOUR and TYPE: marfim/creme + café/marrom profundo, champagne só no detalhe; noite em chocolate. Cormorant Garamond + Montserrat.
+LAYOUT: assimétrico, colunas largas de respiro; seções-palco fixas (sticky) controladas pelo scroll.
+*/
+:root{
+  --bg:#F6F0E8; --bg2:#EFE4D6; --bg3:#E7D7C6; --ink:#3A2517; --ink2:#5B3F2C; --mute:#8A6E58;
+  --gold:#B48D55; --champ:#CFB48A; --line:rgba(180,141,85,.32);
+  --glass:rgba(255,252,247,.55); --glass-b:rgba(207,180,138,.45); --glass-hi:rgba(255,255,255,.7);
+  --lg-top:rgba(255,255,255,.46); --lg-mid:rgba(255,253,249,.16); --lg-bot:rgba(250,243,234,.30); --lg-bright:1.06;
+  --lg-rim-top:rgba(255,255,255,.95); --lg-rim-bot:rgba(255,255,255,.55); --lg-inner:rgba(255,255,255,.9); --lg-depth:rgba(150,110,75,.22);
+  --lg-edge:rgba(160,125,85,.22); --lg-contact:rgba(70,45,28,.08); --lg-drop:rgba(70,45,28,.18); --lg-drop2:rgba(70,45,28,.16);
+  --lg-r1:rgba(255,255,255,1); --lg-r2:rgba(255,255,255,.75); --lg-spec:rgba(255,255,255,.75); --lg-spec2:rgba(255,248,236,.45); --lg-blend:normal;
+  --shadow:0 20px 60px -20px rgba(70,45,28,.22); --photo-filter:saturate(.94);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:Montserrat,system-ui,sans-serif;
+}
+:root[data-theme=dark]{
+  --bg:#1C1410; --bg2:#241913; --bg3:#2E2119; --ink:#F1E6D6; --ink2:#E1CFB6; --mute:#B39C82;
+  --gold:#CFB07C; --champ:#D9BF94; --line:rgba(207,176,124,.24);
+  --glass:rgba(52,38,29,.48); --glass-b:rgba(217,191,148,.24); --glass-hi:rgba(255,236,205,.10);
+  --lg-top:rgba(255,236,210,.14); --lg-mid:rgba(70,50,38,.30); --lg-bot:rgba(40,28,21,.42); --lg-bright:1.12;
+  --lg-rim-top:rgba(255,236,205,.42); --lg-rim-bot:rgba(255,236,205,.12); --lg-inner:rgba(255,232,200,.22); --lg-depth:rgba(0,0,0,.45);
+  --lg-edge:rgba(217,191,148,.18); --lg-contact:rgba(0,0,0,.3); --lg-drop:rgba(0,0,0,.45); --lg-drop2:rgba(0,0,0,.4);
+  --lg-r1:rgba(255,240,215,.75); --lg-r2:rgba(217,191,148,.45); --lg-spec:rgba(255,236,205,.20); --lg-spec2:rgba(217,191,148,.12); --lg-blend:screen;
+  --shadow:0 24px 70px -20px rgba(0,0,0,.55); --photo-filter:saturate(.9) brightness(.92);
+}
+*{box-sizing:border-box;min-width:0;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.7 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased;
+  transition:background-color .9s var(--ease),color .9s var(--ease)}
+body *{transition:background-color .9s var(--ease),border-color .9s var(--ease),color .9s var(--ease)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--champ);color:#3A2517}
+/* papel + luz */
+.paper{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(70% 55% at 80% 0%,var(--bg) 0%,transparent 70%),radial-gradient(90% 70% at 0% 100%,var(--bg2) 0%,var(--bg) 70%)}
+.paper::after{content:"";position:absolute;inset:0;opacity:.07;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+:root[data-theme=dark] .paper::after{mix-blend-mode:screen;opacity:.04}
+
+/* tipografia */
+.eyebrow{font:500 11px/1 var(--sans);letter-spacing:.42em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:18px}
+.eyebrow::after{content:"";height:1px;width:56px;background:var(--line)}
+.eyebrow.c{justify-content:center}.eyebrow.c::before{content:"";height:1px;width:56px;background:var(--line)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;color:var(--ink);text-wrap:balance}
+h2{font-size:clamp(40px,6vw,84px);letter-spacing:.01em}
+h2 em,h1 em{font-style:italic;font-weight:400;color:var(--ink2)}
+.lead{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.2vw,30px);line-height:1.3;color:var(--ink2)}
+p{color:var(--ink2);max-width:60ch}
+p b{color:var(--ink);font-weight:600}
+.wrap{width:min(1240px,100% - 2*max(5vw,20px));margin-inline:auto}
+section{position:relative}
+.band{padding:clamp(90px,13vw,190px) 0}
+
+/* vidro líquido */
+/* Liquid Glass — vidro espesso: corpo translúcido + aro especular + lente de luz + sombra de contato */
+.glass{position:relative;isolation:isolate;border-radius:22px;border:0;
+  background:linear-gradient(180deg,var(--lg-top) 0%,var(--lg-mid) 45%,var(--lg-bot) 100%);
+  backdrop-filter:blur(16px) saturate(190%) brightness(var(--lg-bright)) contrast(1.04);
+  -webkit-backdrop-filter:blur(16px) saturate(190%) brightness(var(--lg-bright)) contrast(1.04);
+  box-shadow:
+    inset 0 1.5px 0 var(--lg-rim-top),          /* luz na borda superior */
+    inset 0 -1px 0 var(--lg-rim-bot),           /* reflexo na borda inferior */
+    inset 0 14px 22px -16px var(--lg-inner),    /* volume interno de cima */
+    inset 0 -16px 24px -18px var(--lg-depth),   /* espessura embaixo */
+    inset 0 0 0 .5px var(--lg-edge),
+    0 1px 1px var(--lg-contact),                /* contato */
+    0 10px 24px -8px var(--lg-drop),
+    0 30px 60px -24px var(--lg-drop2)}
+/* aro de vidro: gradiente na borda que pega a luz (canto superior esquerdo e inferior direito) */
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.2px;pointer-events:none;z-index:2;
+  background:conic-gradient(from calc(var(--la,210deg)) at 50% 50%,var(--lg-r1) 0deg,transparent 70deg,transparent 150deg,var(--lg-r2) 180deg,transparent 230deg,transparent 300deg,var(--lg-r1) 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+/* lente: brilho especular curvo que acompanha a luz */
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:
+    radial-gradient(120% 70% at var(--lx,30%) -10%,var(--lg-spec) 0%,transparent 55%),
+    radial-gradient(90% 60% at calc(100% - var(--lx,30%)) 115%,var(--lg-spec2) 0%,transparent 60%);
+  mix-blend-mode:var(--lg-blend)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 30px;border-radius:999px;
+  font:500 11.5px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;cursor:pointer;border:1px solid transparent;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),background-color .6s var(--ease),color .6s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.glass:is(a,button):active{transform:scale(.97)}
+.btn:focus-visible,.tbtn:focus-visible,.wa-float:focus-visible,.menu-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.btn-solid{background:var(--ink);color:var(--bg);box-shadow:0 16px 40px -16px rgba(58,37,23,.6)}
+.btn-glass{color:var(--ink)}
+.btn svg{width:16px;height:16px;flex:none}
+
+/* NAV */
+.nav{position:fixed;z-index:50;top:16px;left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 28px));
+  display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 14px 12px 28px;border-radius:999px;
+  transition:padding .6s var(--ease),top .6s var(--ease),width .6s var(--ease)}
+.nav.small{top:10px;padding:7px 8px 7px 24px;width:min(1180px,calc(100% - 28px))}
+.brand{font:500 24px/1 var(--serif);letter-spacing:.32em;color:var(--ink)}
+.links{display:flex;gap:clamp(14px,2vw,30px)}
+.links a{white-space:nowrap;font:500 10.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);position:relative;padding:8px 0}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .5s var(--ease)}
+.links a:hover::after{transform:scaleX(1)}
+.nav-r{display:flex;align-items:center;gap:8px}
+.tbtn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--ink);background:transparent;border:0;position:relative;overflow:hidden}
+.tbtn svg{width:18px;height:18px;position:absolute;transition:transform .8s var(--ease),opacity .6s var(--ease)}
+.tbtn .moon{transform:translateY(26px) rotate(-40deg);opacity:0}
+:root[data-theme=dark] .tbtn .sun{transform:translateY(-26px) rotate(40deg);opacity:0}
+:root[data-theme=dark] .tbtn .moon{transform:none;opacity:1}
+.nav .btn{min-height:44px;padding:0 20px;font-size:10.5px}
+.menu-btn{display:none;width:44px;height:44px;border-radius:50%;border:0;background:transparent;color:var(--ink);cursor:pointer;place-items:center}
+.menu-btn span{display:block;width:16px;height:1px;background:currentColor;margin:4px auto;transition:transform .5s var(--ease)}
+.sheet{position:fixed;z-index:49;top:84px;left:14px;right:14px;padding:18px 22px;border-radius:24px;display:grid;gap:4px;
+  opacity:0;transform:translateY(-10px) scale(.98);pointer-events:none;transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.sheet.open{opacity:1;transform:none;pointer-events:auto}
+.sheet a{font:500 26px/1 var(--serif);padding:14px 4px;border-bottom:1px solid var(--line);color:var(--ink)}
+.sheet a:last-child{border:0}
+
+/* HERO */
+.hero{min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:clamp(24px,5vw,80px);padding-top:120px;padding-bottom:60px}
+.hero-txt{display:grid;gap:30px;align-content:center}
+.logo{width:min(520px,100%)}
+.logo img{width:100%;height:auto;aspect-ratio:1400/468;object-fit:contain}
+.logo .l-dark{display:none}
+:root[data-theme=dark] .logo .l-light{display:none}:root[data-theme=dark] .logo .l-dark{display:block}
+.hero .tag{font:500 11px/1.8 var(--sans);letter-spacing:.4em;text-transform:uppercase;color:var(--mute)}
+.hero .tag i{font-style:normal;color:var(--gold);padding:0 .6em}
+.ctas{display:flex;flex-wrap:wrap;gap:14px}
+.hero-pic{position:relative;justify-self:center;width:min(500px,100%)}
+.arch{aspect-ratio:4/5.6;overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.85) 0%,#000 3%,#000 64%,transparent 97%),linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.85) 0%,#000 3%,#000 64%,transparent 97%),linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);mask-composite:intersect}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.12);filter:var(--photo-filter);will-change:transform}
+.arch::after{display:none}
+/* tema claro: transição curta, escondida atrás do selo, para não formar faixa acinzentada */
+:root:not([data-theme=dark]) .arch{
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 80%,transparent 99%),linear-gradient(to right,transparent 0%,#000 4%,#000 96%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 80%,transparent 99%),linear-gradient(to right,transparent 0%,#000 4%,#000 96%,transparent 100%)}
+.ring{display:none}
+.badge{position:absolute;left:-14%;bottom:9%;padding:20px 26px;max-width:290px;will-change:transform}
+:root:not([data-theme=dark]) .badge{--lg-top:rgba(255,255,255,.74);--lg-mid:rgba(255,252,247,.56);--lg-bot:rgba(250,243,234,.66)}
+.badge strong{display:block;font:500 22px/1.1 var(--serif);letter-spacing:.12em;color:var(--ink)}
+.badge span{display:block;margin-top:8px;font:400 13px/1.45 var(--sans);color:var(--ink2)}
+.badge .dot{position:absolute;top:18px;right:18px;width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(180,141,85,.15)}
+.scrollcue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);font:500 10px/1 var(--sans);letter-spacing:.4em;color:var(--mute);text-transform:uppercase;display:grid;justify-items:center;gap:14px}
+.scrollcue::after{content:"";width:1px;height:46px;background:linear-gradient(var(--gold),transparent);animation:cue 2.6s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* fio dourado desenhado pelo scroll */
+.thread{position:absolute;pointer-events:none;overflow:visible;z-index:0}
+.hero-txt,.hero-pic,.concept,.final-in{position:relative;z-index:1}
+@media (max-width:920px){.hero-thread,#mentoria .thread,.final .thread{display:none}}
+.thread path{fill:none;stroke:url(#gold);stroke-width:1.2;vector-effect:non-scaling-stroke}
+
+/* SOBRE */
+.sobre{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,110px);align-items:center}
+.photo{border-radius:26px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+.photo img{width:100%;height:100%;object-fit:cover;filter:var(--photo-filter);will-change:transform}
+.sobre .photo{aspect-ratio:4/5.4;border-radius:26px 26px 26px 220px}
+.sobre-txt{display:grid;gap:26px}
+.sobre-txt h2{font-size:clamp(48px,7vw,104px)}
+.pillars{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.pill{padding:12px 20px;border-radius:999px;font:500 10.5px/1 var(--sans);letter-spacing:.3em;color:var(--ink)}
+.facts{display:grid;gap:18px;border-left:1px solid var(--line);padding-left:26px}
+
+/* CONCEITO (sticky + palavras) */
+.stage{height:300vh}
+.stage-in{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:hidden}
+.concept{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center;width:min(1240px,100% - 2*max(5vw,20px))}
+.concept h2{font-size:clamp(40px,5.4vw,78px)}
+.concept .eyebrow{margin-bottom:26px}
+.concept p{margin-top:28px}
+.words{display:grid;gap:4px;justify-items:start}
+.word{font:500 clamp(34px,4.6vw,72px)/1.08 var(--serif);letter-spacing:.06em;color:var(--ink);opacity:.08;transform:translateX(40px);filter:blur(6px);will-change:transform,opacity}
+.word small{font:500 11px/1 var(--sans);letter-spacing:.3em;color:var(--gold);margin-right:18px;vertical-align:middle}
+.concept-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:34px}
+.concept-list div{padding:16px 18px;border-radius:16px;font-size:13.5px;line-height:1.45;color:var(--ink2)}
+
+/* PARA QUEM */
+.forwho{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:56px}
+.forwho .glass{padding:26px 22px;border-radius:20px;display:grid;gap:14px;align-content:start}
+.forwho svg{width:26px;height:26px;color:var(--gold)}
+.forwho p{font-size:14.5px;line-height:1.5}
+
+/* EXPERIÊNCIA */
+.days{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);margin-top:70px}
+.day{border-radius:30px;padding:clamp(28px,4vw,52px);display:grid;gap:26px;align-content:start}
+.day-head{display:flex;align-items:flex-end;gap:22px}
+.day-num{font:500 clamp(90px,11vw,150px)/.78 var(--serif);color:var(--ink)}
+.day-num sup{font:500 11px/1 var(--sans);letter-spacing:.4em;color:var(--gold);display:block;margin-bottom:16px;vertical-align:baseline}
+.day h3{font-size:clamp(28px,3vw,40px);letter-spacing:.06em}
+.day h3 span{display:block;font:500 10.5px/1.6 var(--sans);letter-spacing:.3em;color:var(--mute);margin-top:10px}
+.mods{display:grid;gap:10px}
+.mod{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;
+  transition:transform .6s var(--ease),background-color .6s var(--ease)}
+.mod:hover{transform:translateX(6px)}
+.mod b{font:500 34px/1 var(--serif);color:var(--gold)}
+.mod span{font:500 12px/1.45 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.mod em{display:block;font:500 9.5px/1 var(--sans);letter-spacing:.3em;color:var(--mute);font-style:normal;margin-bottom:6px}
+.day .note{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.35;color:var(--ink2);border-top:1px solid var(--line);padding-top:22px}
+
+/* CLÍNICA scrub */
+.clinic{height:420vh}
+.clinic .stage-in{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(18px,3vh,34px);padding-top:70px}
+.clinic-title{text-align:center;display:grid;gap:14px;justify-items:center;padding:0 20px}
+.clinic-title h2{font-size:clamp(40px,6vw,92px)}
+.slides{position:relative;height:min(58svh,620px);aspect-ratio:3/4.2;max-width:82vw}
+.slide{position:absolute;inset:0;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);opacity:0;will-change:transform,opacity}
+.slide img{width:100%;height:100%;object-fit:cover;filter:var(--photo-filter)}
+.slide figcaption{position:absolute;left:14px;right:14px;bottom:14px;padding:14px 18px;border-radius:16px;font:500 10.5px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.counter{position:absolute;right:max(5vw,20px);bottom:clamp(30px,6vh,60px);font:500 12px/1 var(--sans);letter-spacing:.3em;color:var(--mute);display:flex;align-items:center;gap:14px}
+.counter i{display:block;width:90px;height:1px;background:var(--line);position:relative;overflow:hidden}
+.counter i::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(var(--p,0));transform-origin:left}
+
+/* ACOMPANHAMENTO */
+.acomp{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,100px);align-items:center}
+.big06{font:500 clamp(150px,22vw,300px)/.8 var(--serif);color:var(--gold);letter-spacing:-.02em}
+.acomp-h{display:flex;align-items:center;gap:clamp(18px,3vw,36px);flex-wrap:wrap}
+.acomp-h h2{font-size:clamp(34px,4.4vw,62px)}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:44px}
+.benefits .glass{padding:22px;border-radius:18px;display:grid;gap:10px;align-content:start}
+.benefits .glass:last-child{grid-column:1/-1}
+.benefits h4{font:500 11px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.benefits p{font-size:14px;line-height:1.5}
+.acomp .photo{aspect-ratio:4/5.6;border-radius:220px 220px 26px 26px}
+
+/* POSICIONAMENTO */
+.posic{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,6vw,100px);align-items:center}
+.posic .photo{aspect-ratio:4/5.6}
+.posic h2{font-size:clamp(42px,6vw,88px)}
+.posic .sub{font:500 12px/1.9 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--mute);margin-top:20px;max-width:46ch}
+.plist{display:grid;grid-template-columns:1fr 1fr;margin-top:44px;border-top:1px solid var(--line)}
+.plist div{display:flex;gap:16px;align-items:flex-start;padding:22px 18px 22px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:21px;line-height:1.3;color:var(--ink)}
+.plist svg{width:22px;height:22px;color:var(--gold);flex:none;margin-top:3px}
+.quote{margin-top:34px;font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.4vw,30px);color:var(--ink2)}
+
+/* INVESTIMENTO */
+.invest{text-align:center}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:64px auto 0;max-width:980px}
+.price{padding:clamp(30px,4vw,54px) 24px;border-radius:28px;display:grid;gap:14px;justify-items:center}
+.price .k,.insc .k{font:500 11px/1 var(--sans);letter-spacing:.42em;text-transform:uppercase;color:var(--mute)}
+.price .v,.insc .v{font:500 clamp(58px,8vw,104px)/.9 var(--serif);color:var(--ink);white-space:nowrap}
+.price .v small,.insc .v small{font-size:.32em;vertical-align:.2em;margin-right:.18em;color:var(--ink2)}
+.price .v sup,.insc .v sup{font-size:.36em;vertical-align:.08em}
+.price .x{font:500 clamp(30px,3.6vw,44px)/1 var(--serif);color:var(--gold)}
+.insc{grid-column:1/-1;display:grid;grid-template-columns:auto 1px 1fr;gap:clamp(18px,4vw,44px);align-items:center;padding:28px clamp(24px,4vw,54px);border-radius:24px;text-align:left}
+.insc .v{font-size:clamp(46px,5.6vw,70px)}
+.insc hr{border:0;width:1px;height:70px;background:var(--line)}
+.insc p{font-family:var(--serif);font-size:21px;line-height:1.35}
+.invest .ctas{justify-content:center;margin-top:44px}
+.invest .lead{margin-top:30px}
+
+/* FINAL */
+.final{min-height:90svh;display:grid;place-items:center;text-align:center}
+.final .logo{margin:0 auto}
+.final-in{display:grid;gap:30px;justify-items:center}
+.final .lead{font-size:clamp(28px,3.4vw,46px)}
+.final .ctas{justify-content:center}
+
+footer{border-top:1px solid var(--line);padding:56px 0 110px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;align-items:flex-end}
+.foot .brand{font-size:28px}
+.foot p{font-size:13px;line-height:1.8;color:var(--mute)}
+.foot a{color:var(--ink)}
+
+/* WhatsApp flutuante */
+.wa-float{position:fixed;z-index:60;right:clamp(16px,2.4vw,30px);bottom:clamp(16px,2.4vw,30px);width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:var(--ink);
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.wa-float{background:linear-gradient(180deg,rgba(72,232,132,.92),rgba(31,185,85,.9))!important;color:#fff!important;
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.75),inset 0 -1px 0 rgba(255,255,255,.3),inset 0 12px 18px -12px rgba(255,255,255,.85),inset 0 -14px 20px -14px rgba(0,80,30,.45),0 1px 1px rgba(0,60,20,.15),0 12px 28px -8px rgba(37,211,102,.55),0 28px 50px -22px rgba(20,90,45,.35)!important}
+.wa-float svg{filter:drop-shadow(0 1px 1px rgba(0,70,25,.35));pointer-events:none}
+.wa-float{touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:grab}
+.wa-float.free{right:auto!important;bottom:auto!important}
+.wa-float.snap{transition:left .55s var(--ease),top .55s var(--ease),transform .4s var(--ease)!important}
+.wa-float.dragging{cursor:grabbing;transform:scale(1.1)!important;transition:transform .25s var(--ease)!important}
+.wa-float.dragging .tip,.wa-float.free.tip-left .tip{opacity:0}
+.wa-float.free.on-left .tip{right:auto;left:calc(100% + 12px)}
+.wa-float svg{width:26px;height:26px}
+.wa-float .tip{color:var(--ink)}
+.wa-float:hover{transform:translateY(-3px) scale(1.04)}
+.wa-float .tip{position:absolute;right:calc(100% + 12px);top:50%;transform:translate(8px,-50%);white-space:nowrap;padding:11px 16px;border-radius:999px;
+  font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;opacity:0;pointer-events:none;transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.wa-float:hover .tip,.wa-float:focus-visible .tip{opacity:1;transform:translate(0,-50%)}
+.wa-float::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid #25D366;opacity:0;animation:halo 4.5s var(--ease) infinite}
+@keyframes halo{0%{transform:scale(1);opacity:.5}60%,100%{transform:scale(1.45);opacity:0}}
+
+/* revelações */
+.rv{opacity:0;transform:translateY(28px);filter:blur(8px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease),filter 1.2s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}.rv.d4{transition-delay:.48s}
+.mask{clip-path:inset(0 0 100% 0);transition:clip-path 1.6s var(--ease)}
+.mask.in{clip-path:inset(0 0 0 0)}
+
+/* responsivo */
+@media (max-width:1080px){
+  .forwho{grid-template-columns:repeat(2,minmax(0,1fr))}.forwho .glass:last-child{grid-column:1/-1}
+  .badge{left:-6%}
+}
+@media (max-width:1060px){.links,.nav .btn{display:none}.menu-btn{display:grid}}
+@media (max-width:920px){
+  .links,.nav .btn{display:none}.menu-btn{display:grid}
+  .hero,.sobre,.acomp,.posic,.concept,.days{grid-template-columns:1fr}
+  .hero{padding-top:110px;gap:50px}
+  .hero-pic{width:min(420px,88%)}
+  .badge{left:-8%;bottom:6%}
+  .sobre .photo,.posic .photo{max-width:520px}
+  .acomp .photo{max-width:440px;justify-self:center}
+  .stage{height:260vh}
+  .concept{align-content:center;gap:30px}
+  .concept p,.concept-list{display:none}
+  .scrollcue{display:none}
+}
+@media (max-width:600px){
+  body{font-size:15.5px}
+  .nav{padding:8px 8px 8px 22px}
+  .brand{font-size:20px}
+  .ctas .btn{width:100%}
+  .badge{position:relative;left:auto;bottom:auto;margin:-150px auto 0;width:86%;max-width:none}
+  .forwho,.benefits,.plist,.prices,.concept-list{grid-template-columns:1fr}
+  .insc{grid-template-columns:1fr;text-align:center;justify-items:center}.insc hr{width:70px;height:1px}
+  .mod{grid-template-columns:48px 1fr;padding:12px 14px}.mod b{font-size:28px}
+  .clinic{height:360vh}
+  .posic h2,.acomp-h h2{font-size:clamp(30px,8.4vw,48px)}
+  .day-num{font-size:84px}
+  .wa-float{width:54px;height:54px}
+  .wa-float .tip{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none;filter:none}.mask{clip-path:none}
+  .word{opacity:1;transform:none;filter:none}
+}
+</style>
+</head>
+<body>
+<div class="paper"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#CFB48A" stop-opacity="0"/><stop offset=".45" stop-color="#B48D55"/><stop offset="1" stop-color="#CFB48A" stop-opacity=".1"/>
+    </linearGradient>
+    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.24 8.24 0 0 1 0 16.48Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<header class="nav glass" id="nav">
+  <a href="#topo" class="brand" aria-label="VÉRTIA — início">VÉRTIA</a>
+  <nav class="links" aria-label="Seções">
+    <a href="#mentoria">A Mentoria</a><a href="#dra-andrea">Dra. Andrea</a><a href="#experiencia">Experiência</a><a href="#conteudo">Conteúdo</a><a href="#investimento">Investimento</a>
+  </nav>
+  <div class="nav-r">
+    <button class="tbtn glass" id="theme" aria-label="Alternar tema claro/escuro" title="Claro / Escuro">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+    </button>
+    <a class="btn btn-solid" href="https://wa.me/5544999124497" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Falar no WhatsApp</a>
+    <button class="menu-btn glass" id="menuBtn" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+<nav class="sheet glass" id="sheet" aria-label="Menu">
+  <a href="#mentoria">A Mentoria</a><a href="#dra-andrea">Dra. Andrea</a><a href="#experiencia">Experiência</a><a href="#conteudo">Conteúdo</a><a href="#investimento">Investimento</a>
+  <a href="https://wa.me/5544999124497" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</nav>
+
+<main id="topo">
+<!-- HERO -->
+<section class="wrap hero" id="hero">
+  <svg class="thread hero-thread" style="left:42%;top:8%;width:68%;height:86%" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+    <path data-draw="hero" d="M0 520 C 260 420, 420 120, 760 180 S 1120 420, 1220 160"/>
+  </svg>
+  <div class="hero-txt">
+    <div class="logo rv"><img class="l-light" src="img/logo.png" alt="VÉRTIA — A evolução da estética natural" width="1400" height="468"><img class="l-dark" src="img/logo-light.png" alt="" width="1400" height="468"></div>
+    <div class="tag rv d1">Mentoria VIP<i>•</i>Facetas em resina composta</div>
+    <p class="lead rv d2">Uma imersão em estética, anatomia e naturalidade.</p>
+    <div class="ctas rv d3">
+      <a class="btn btn-solid" href="#mentoria">Conhecer a mentoria</a>
+      <a class="btn btn-glass glass" href="https://wa.me/5544999124497" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Fale com a Dra. Andrea</a>
+    </div>
+  </div>
+  <div class="hero-pic">
+    <div class="ring" aria-hidden="true"></div>
+    <div class="arch mask" id="heroArch"><img id="heroImg" src="img/andrea-hero.jpg" alt="Dra. Andrea Tadeu" width="580" height="865" fetchpriority="high"></div>
+    <div class="badge glass rv d4" id="badge"><i class="dot"></i><strong>DRA. ANDREA TADEU</strong><span>Mentoria em Facetas de Resina Composta</span></div>
+  </div>
+  <div class="scrollcue" aria-hidden="true">Role</div>
+</section>
+
+<!-- SOBRE -->
+<section class="band" id="dra-andrea">
+  <div class="wrap sobre">
+    <div class="photo mask" data-par=".08"><img src="img/andrea-sobre.jpg" alt="Dra. Andrea Tadeu em seu consultório" width="550" height="866" loading="lazy"></div>
+    <div class="sobre-txt">
+      <div class="eyebrow rv">Muito prazer, sou</div>
+      <h2 class="rv d1">DRA. ANDREA<br>TADEU</h2>
+      <p class="rv d2">36 anos, mãe do Rafael, casada, apaixonada pela Odontologia Estética, por transformar sorrisos e guiar outros profissionais na realização de seus sonhos.</p>
+      <div class="facts rv d3">
+        <p>Construiu sua técnica por meio de diversos cursos, estudos e experiências clínicas, reunindo o melhor de tudo: <b>teoria, prática, olhar clínico e sensibilidade estética.</b></p>
+        <p>Ao longo da trajetória, desenvolveu um método que agora quer <b>ensinar e compartilhar com outros profissionais</b> — para que cirurgiões-dentistas aperfeiçoem seus resultados, conquistem mais segurança clínica e <b>aumentem seu faturamento com facetas em resina composta.</b></p>
+      </div>
+      <div class="pillars rv d4">
+        <span class="pill glass">Estética</span><span class="pill glass">Anatomia</span><span class="pill glass">Naturalidade</span><span class="pill glass">Precisão</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A VÉRTIA — palavras pelo scroll -->
+<section class="stage" id="mentoria">
+  <div class="stage-in">
+    <svg class="thread" style="inset:0;width:100%;height:100%" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+      <path data-draw="concept" d="M-20 700 C 300 640, 500 420, 700 430 S 1050 160, 1220 90"/>
+    </svg>
+    <div class="concept">
+      <div>
+        <div class="eyebrow">A proposta</div>
+        <h2>Conhecimento que se transforma em <em>resultado.</em></h2>
+        <p>A VÉRTIA é uma mentoria VIP para dentistas que querem dominar as facetas em resina composta com método: evolução clínica e crescimento profissional em um só lugar.</p>
+        <div class="concept-list">
+          <div class="glass">Técnica validada na prática clínica</div><div class="glass">Foco em naturalidade e estética real</div>
+          <div class="glass">Mais segurança e previsibilidade</div><div class="glass">Resultados que agregam valor ao seu trabalho</div>
+        </div>
+      </div>
+      <div class="words" id="words">
+        <div class="word"><small>01</small>TÉCNICA</div>
+        <div class="word"><small>02</small>NATURALIDADE</div>
+        <div class="word"><small>03</small>SEGURANÇA</div>
+        <div class="word"><small>04</small>RESULTADO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="band" style="padding-top:clamp(40px,6vw,90px)">
+  <div class="wrap">
+    <div class="eyebrow rv">Para quem é</div>
+    <h2 class="rv d1" style="margin-top:22px;max-width:16ch">Essa mentoria é <em>para você que:</em></h2>
+    <div class="forwho">
+      <div class="glass rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3Z"/></svg><p>Não trabalha com resina, mas deseja <b>começar.</b></p></div>
+      <div class="glass rv d1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg><p>Já trabalha com resina e quer <b>aperfeiçoar</b> sua técnica.</p></div>
+      <div class="glass rv d2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M18.4 2.6a2 2 0 0 1 2.9 2.9L11 15.8l-3.6.7.7-3.6L18.4 2.6ZM7 17c-2 0-3 1.5-3 3.5V21h.5C6.5 21 8 20 8 18"/></svg><p>Busca mais <b>naturalidade</b> e um olhar mais estético.</p></div>
+      <div class="glass rv d3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/></svg><p>Deseja mais <b>segurança</b> na execução dos casos.</p></div>
+      <div class="glass rv d4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 20h16M6 16v-4M10 16V9M14 16v-5M18 16V6M5 9l5-4 4 3 6-5"/></svg><p>Quer <b>aumentar seu faturamento</b> com facetas em resina composta.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section class="band" id="experiencia" style="padding-top:clamp(30px,4vw,60px)">
+  <div class="wrap" id="conteudo">
+    <div class="eyebrow c rv">A experiência</div>
+    <h2 class="rv d1" style="text-align:center;margin-top:22px">Dois dias. <em>Uma nova técnica.</em></h2>
+    <div class="days">
+      <article class="day glass rv">
+        <div class="day-head"><div class="day-num"><sup>DIA</sup>01</div><h3>IMERSÃO<br>TEÓRICA<span>Fundamentos e método</span></h3></div>
+        <div class="mods" id="mods1"></div>
+      </article>
+      <article class="day glass rv d2">
+        <div class="day-head"><div class="day-num"><sup>DIA</sup>02</div><h3>IMERSÃO<br>CLÍNICA<span>Da teoria à prática, com acompanhamento</span></h3></div>
+        <div class="mods" id="mods2"></div>
+        <p class="note">Acompanhe a execução clínica de 10 facetas em resina composta pela Dra. Andrea, observe cada etapa e tire dúvidas em tempo real.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CLÍNICA — scrub de imagens -->
+<section class="clinic" id="clinica">
+  <div class="stage-in">
+    <div class="clinic-title"><div class="eyebrow c">Dia 02 · Acompanhamento prático</div><h2>Da teoria <em>à prática.</em></h2></div>
+    <div class="slides" id="slides">
+      <figure class="slide"><img src="img/clinica-1.jpg" alt="Dra. Andrea em atendimento clínico" loading="lazy"><figcaption class="glass">Execução clínica</figcaption></figure>
+      <figure class="slide"><img src="img/clinica-2.jpg" alt="Dra. Andrea executando facetas com auxiliar" loading="lazy"><figcaption class="glass">Construção das facetas</figcaption></figure>
+      <figure class="slide"><img src="img/sorriso-2.jpg" alt="Sorriso com facetas em resina composta" loading="lazy"><figcaption class="glass">Refinamento estético</figcaption></figure>
+      <figure class="slide"><img src="img/clinica-3.jpg" alt="Dra. Andrea fotografando o resultado" loading="lazy"><figcaption class="glass">Fotografia e análise</figcaption></figure>
+      <figure class="slide"><img src="img/sorriso-1.jpg" alt="Detalhe de facetas em resina composta" loading="lazy"><figcaption class="glass">Naturalidade</figcaption></figure>
+    </div>
+    <div class="counter"><span id="cnum">01</span><i id="cbar"></i><span>05</span></div>
+  </div>
+</section>
+
+<!-- ACOMPANHAMENTO -->
+<section class="band">
+  <div class="wrap acomp">
+    <div>
+      <div class="eyebrow rv">Bônus</div>
+      <div class="acomp-h rv d1" style="margin-top:20px"><div class="big06">06</div><h2>MESES DE<br>ACOMPANHAMENTO</h2></div>
+      <p class="lead rv d2" style="margin-top:26px">Uma mentoria que continua ao seu lado no dia a dia clínico.</p>
+      <div class="benefits">
+        <div class="glass rv"><h4>Suporte individual</h4><p>Pelo WhatsApp particular da Dra. Andrea.</p></div>
+        <div class="glass rv d1"><h4>Discussão de casos</h4><p>Dúvidas sobre anatomia, cor, acabamento e polimento.</p></div>
+        <div class="glass rv d2"><h4>Envio de fotografias</h4><p>Dos seus casos clínicos, para planejarem juntas.</p></div>
+        <div class="glass rv d3"><h4>Orientação clínica</h4><p>Sobre dificuldades encontradas durante a execução das facetas.</p></div>
+        <div class="glass rv d4"><h4>Acompanhamento da evolução</h4><p>A experiência não termina nos dois dias: você continua tendo suporte para evoluir com segurança.</p></div>
+      </div>
+    </div>
+    <div class="photo mask" data-par=".07"><img src="img/andrea-acomp.jpg" alt="Dra. Andrea Tadeu sorrindo" width="400" height="795" loading="lazy" style="object-position:50% 20%"></div>
+  </div>
+</section>
+
+<!-- POSICIONAMENTO -->
+<section class="band" style="padding-top:clamp(30px,5vw,80px)">
+  <div class="wrap posic">
+    <div class="photo mask" data-par=".08"><img src="img/andrea-posic.jpg" alt="Dra. Andrea Tadeu, retrato profissional" width="425" height="864" loading="lazy" style="object-position:50% 25%"></div>
+    <div>
+      <div class="eyebrow rv">Bônus exclusivo</div>
+      <h2 class="rv d1" style="margin-top:20px">POSICIONAMENTO<br>E AUTORIDADE</h2>
+      <div class="sub rv d2">Aprenda a valorizar o seu trabalho além da cadeira odontológica.</div>
+      <div class="plist rv d3">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8.5 7l1.5-3h4l1.5 3"/></svg>Como apresentar seus casos clínicos nas redes sociais</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 20h16M6 16v-4M10 16V9M14 16v-5M18 16V6"/></svg>Como construir autoridade na Odontologia Estética</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>Fotografias de qualidade para valorizar seus resultados</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 18v-3a7 7 0 0 1 7-7h2M14 4l4 4-4 4M20 20H10"/></svg>Como comunicar o seu trabalho de forma profissional e estratégica</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>Posicionamento profissional nas redes sociais</div>
+      </div>
+      <p class="quote rv d4">Seu trabalho merece ser visto, valorizado e reconhecido.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTIMENTO -->
+<section class="band invest" id="investimento">
+  <div class="wrap">
+    <div class="eyebrow c rv">Investimento</div>
+    <h2 class="rv d1" style="margin-top:22px">Sua vaga na <em>VÉRTIA.</em></h2>
+    <div class="prices">
+      <div class="price glass rv"><span class="x">12X</span><span class="v"><small>R$</small>283<sup>,33</sup></span></div>
+      <div class="price glass rv d1"><span class="k">À vista</span><span class="v"><small>R$</small>3.000<sup>,00</sup></span></div>
+      <div class="insc glass rv d2">
+        <div style="display:grid;gap:12px"><span class="k">Inscrição</span><span class="v"><small>R$</small>500<sup>,00</sup></span></div>
+        <hr><p>Esse valor é descontado do valor total no dia da mentoria.</p>
+      </div>
+    </div>
+    <p class="lead rv">Garanta a sua vaga e dê o próximo passo na sua evolução profissional.</p>
+    <div class="ctas rv d1">
+      <a class="btn btn-solid" href="https://wa.me/5544999124497?text=Ol%C3%A1%2C%20Dra.%20Andrea!%20Quero%20fazer%20parte%20da%20V%C3%89RTIA." target="_blank" rel="noopener">Quero fazer parte da VÉRTIA</a>
+      <a class="btn btn-glass glass" href="https://wa.me/5544999124497" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Falar com a Dra. Andrea</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <svg class="thread" style="inset:0;width:100%;height:100%" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+    <path data-draw="final" d="M-20 600 C 260 700, 480 300, 640 380 S 980 640, 1220 260"/>
+  </svg>
+  <div class="final-in wrap">
+    <div class="logo rv" style="width:min(460px,86%)"><img class="l-light" src="img/logo.png" alt="VÉRTIA — A evolução da estética natural" loading="lazy"><img class="l-dark" src="img/logo-light.png" alt="" loading="lazy"></div>
+    <div class="eyebrow c rv d1">Dra. Andrea Tadeu</div>
+    <p class="lead rv d2">Sua evolução na estética em resina começa aqui.</p>
+    <div class="ctas rv d3">
+      <a class="btn btn-solid" href="https://wa.me/5544999124497?text=Ol%C3%A1%2C%20Dra.%20Andrea!%20Quero%20fazer%20parte%20da%20V%C3%89RTIA." target="_blank" rel="noopener">Quero fazer parte</a>
+      <a class="btn btn-glass glass" href="https://wa.me/5544999124497" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Falar com a Dra. Andrea</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><div class="brand">VÉRTIA</div><p>A evolução da estética natural.</p></div>
+    <p>Dra. Andrea Tadeu<br>Facetas em Resina Composta</p>
+    <p>WhatsApp<br><a href="https://wa.me/5544999124497" target="_blank" rel="noopener">+55 44 99912-4497</a></p>
+  </div>
+</footer>
+
+<a class="wa-float glass" href="https://wa.me/5544999124497" target="_blank" rel="noopener" aria-label="Falar com a Dra. Andrea no WhatsApp"><svg><use href="#wa"/></svg><span class="tip glass">Falar com a Dra. Andrea</span></a>
+
+<script>
+{
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const root=document.documentElement;
+
+// módulos (do material da mentoria)
+const M1=['Planejamento estético','Anatomia dental aplicada às facetas','Seleção de resinas e percepção de cor','Estratificação da resina composta','Escultura e construção anatômica','Acabamento, textura e polimento','Discussão de casos clínicos'];
+const M2=['Planejamento do caso','Preparação e organização clínica','Construção das facetas','Refinamento estético','Acabamento e polimento','Análise do resultado'];
+const mod=(t,i)=>`<div class="mod glass"><b>${String(i+1).padStart(2,'0')}</b><span><em>MÓDULO ${String(i+1).padStart(2,'0')}</em>${t}</span></div>`;
+$('#mods1').innerHTML=M1.map(mod).join('');
+$('#mods2').innerHTML=M2.map(mod).join('');
+
+// tema
+let saved=null; try{saved=localStorage.getItem('vertia-theme')}catch(e){}
+if(saved) root.dataset.theme=saved;
+else if(matchMedia('(prefers-color-scheme: dark)').matches) root.dataset.theme='dark';
+$('#theme').addEventListener('click',()=>{
+  const next=root.dataset.theme==='dark'?'light':'dark';
+  root.dataset.theme=next;
+  try{localStorage.setItem('vertia-theme',next)}catch(e){}
+});
+
+// menu mobile
+const sheet=$('#sheet'), mb=$('#menuBtn');
+const setMenu=o=>{sheet.classList.toggle('open',o);mb.setAttribute('aria-expanded',o)};
+mb.addEventListener('click',()=>setMenu(!sheet.classList.contains('open')));
+$$('a',sheet).forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+// revelações
+// .mask é recortada por clip-path (o observer veria 0%), então observamos o pai
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){(e.target._t||e.target).classList.add('in');io.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+$$('.rv').forEach(el=>io.observe(el));
+$$('.mask').forEach(el=>{const p=el.parentElement;p._t=el;io.observe(p)});
+$$('.mod').forEach((m,i)=>{m.classList.add('rv');m.style.transitionDelay=(i%7)*0.07+'s';io.observe(m)});
+
+// scrub
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const small=()=>innerWidth<700;
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const ease=t=>1-Math.pow(1-t,3);
+const nav=$('#nav');
+const draws=$$('[data-draw]').map(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;return {p,L,box:p.closest('section')}});
+const pars=$$('[data-par]').map(el=>({el,img:$('img',el),k:+el.dataset.par}));
+const words=$$('.word'), stage=$('#mentoria'), clinic=$('#clinica'), slides=$$('.slide'), cnum=$('#cnum'), cbar=$('#cbar');
+const heroImg=$('#heroImg'), badge=$('#badge');
+// progresso de uma seção: 0 quando o topo entra, 1 quando o fim sai
+const prog=el=>{const r=el.getBoundingClientRect();return clamp((innerHeight-r.top)/(r.height+innerHeight))};
+const stick=el=>{const r=el.getBoundingClientRect();return clamp(-r.top/(r.height-innerHeight))};
+let cur={y:scrollY}, ticking=false;
+
+function frame(){
+  ticking=false;
+  const y=scrollY, H=innerHeight;
+  nav.classList.toggle('small',y>40);
+  if(reduce) return;
+  // herói: imagem desce/encolhe, selo de vidro flutua
+  const hp=clamp(y/H);
+  heroImg.style.transform=`translateY(${hp*28}px) scale(1.12)`;
+  if(!small()) badge.style.transform=`translateY(${-hp*70}px)`;
+  // fios dourados
+  draws.forEach(d=>{const t=ease(clamp(prog(d.box)*1.6));d.p.style.strokeDashoffset=d.L*(1-t)});
+  // parallax das fotos
+  if(!small()) pars.forEach(o=>{const t=prog(o.el)-.5;o.img.style.transform=`translateY(${t*o.k*-400}px) scale(1.12)`});
+  // palavras
+  const sp=stick(stage);
+  words.forEach((w,i)=>{
+    const t=ease(clamp((sp-.08-i*.18)/.2));
+    w.style.opacity=lerp(.08,1,t);
+    w.style.transform=`translateX(${(1-t)*40}px)`;
+    w.style.filter=`blur(${(1-t)*6}px)`;
+  });
+  // clínica: imagem → zoom → deslocamento → próxima
+  const cp=stick(clinic), n=slides.length, seg=cp*n, idx=Math.min(n-1,Math.floor(seg)), f=seg-idx;
+  slides.forEach((s,i)=>{
+    let o=0,x=0,sc=1,ro=0;
+    if(i===idx){
+      const out=i<n-1?ease(clamp((f-.7)/.3)):0;
+      o=1-out;
+      sc=1+f*.08; x=-out*120; ro=-out*2;
+    }else if(i===idx+1){const t=ease(clamp((f-.7)/.3));o=t;x=(1-t)*120;sc=.94+t*.06;ro=(1-t)*2}
+    s.style.opacity=o;s.style.transform=`translateX(${x}px) scale(${sc}) rotate(${ro}deg)`;s.style.zIndex=i===idx+1?2:1;
+  });
+  cnum.textContent=String(idx+1).padStart(2,'0');
+  cbar.style.setProperty('--p',cp);
+}
+const req=()=>{if(!ticking){ticking=true;requestAnimationFrame(frame)}};
+// luz do vidro: segue o ponteiro no desktop e desliza com o scroll no celular
+addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;root.style.setProperty('--lx',(e.clientX/innerWidth*100).toFixed(1)+'%');root.style.setProperty('--la',(180+e.clientX/innerWidth*60).toFixed(0)+'deg')},{passive:true});
+addEventListener('scroll',()=>{if(matchMedia('(pointer:coarse)').matches){const t=(Math.sin(scrollY/420)+1)/2;root.style.setProperty('--lx',(15+t*70).toFixed(1)+'%');root.style.setProperty('--la',(190+t*50).toFixed(0)+'deg')}},{passive:true});
+addEventListener('scroll',req,{passive:true});
+addEventListener('resize',req);
+if(reduce){slides.forEach((s,i)=>{s.style.opacity=i===0?1:0});words.forEach(w=>w.style.opacity=1)}
+frame();
+}
+
+// WhatsApp flutuante arrastável: arraste para qualquer lugar; ao soltar, encosta na lateral mais próxima
+{
+const wa=document.querySelector('.wa-float');
+const M=12; let sx=0,sy=0,ox=0,oy=0,moved=false,down=false;
+const size=()=>wa.getBoundingClientRect();
+const place=(x,y)=>{const r=size();x=Math.min(innerWidth-r.width-M,Math.max(M,x));y=Math.min(innerHeight-r.height-M,Math.max(M+70,y));wa.style.left=x+'px';wa.style.top=y+'px';return {x,y}};
+const snap=()=>{const r=size();const left=r.left+r.width/2<innerWidth/2;const x=left?M:innerWidth-r.width-M;
+  wa.classList.add('snap');const p=place(x,r.top);wa.classList.toggle('on-left',left);
+  try{localStorage.setItem('vertia-wa',JSON.stringify({left,yr:p.y/innerHeight}))}catch(e){}
+  setTimeout(()=>wa.classList.remove('snap'),600)};
+try{const p=JSON.parse(localStorage.getItem('vertia-wa')||'null');if(p){wa.classList.add('free');const r=size();place(p.left?M:innerWidth-r.width-M,p.yr*innerHeight);wa.classList.toggle('on-left',p.left)}}catch(e){}
+wa.addEventListener('pointerdown',e=>{down=true;moved=false;const r=size();sx=e.clientX;sy=e.clientY;ox=r.left;oy=r.top;wa.setPointerCapture(e.pointerId)});
+wa.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx,dy=e.clientY-sy;
+  if(!moved&&Math.hypot(dx,dy)<7)return;
+  if(!moved){moved=true;wa.classList.add('free','dragging');}
+  place(ox+dx,oy+dy)});
+const end=()=>{if(!down)return;down=false;if(moved){wa.classList.remove('dragging');snap()}};
+wa.addEventListener('pointerup',end);wa.addEventListener('pointercancel',end);
+// se arrastou, não abre o WhatsApp
+wa.addEventListener('click',e=>{if(moved){e.preventDefault();moved=false}});
+addEventListener('resize',()=>{if(wa.classList.contains('free')){const r=size();place(wa.classList.contains('on-left')?M:innerWidth-r.width-M,r.top)}});
+}
+</script>
+</body>
+</html>
