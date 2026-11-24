@@ -163,7 +163,7 @@ section{position:relative}
 /* fio dourado desenhado pelo scroll */
 .thread{position:absolute;pointer-events:none;overflow:visible;z-index:0}
 .hero-txt,.hero-pic,.concept,.final-in{position:relative;z-index:1}
-@media (max-width:920px){.hero-thread,#mentoria .thread,.final .thread{display:none}}
+@media (max-width:920px){.hero-thread,#mentoria .thread,.final .thread,.inv-thread{display:none}}
 .thread path{fill:none;stroke:url(#gold);stroke-width:1.2;vector-effect:non-scaling-stroke}
 
 /* SOBRE */
@@ -305,6 +305,65 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
 .mask{clip-path:inset(0 0 100% 0);transition:clip-path 1.6s var(--ease)}
 .mask.in{clip-path:inset(0 0 0 0)}
 
+
+/* INVESTIMENTO editorial */
+.invest{overflow:hidden;isolation:isolate}
+.inv-in{position:relative;z-index:1}
+.inv-bgword{position:absolute;z-index:0;top:clamp(40px,7vw,110px);left:50%;white-space:nowrap;pointer-events:none;user-select:none;
+  font:500 clamp(110px,19vw,300px)/1 var(--serif);letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px var(--line);opacity:.9;
+  transform:translateX(calc(-50% + var(--wx,0px)))}
+.inv-glow{position:absolute;z-index:0;left:50%;top:52%;width:min(900px,120vw);aspect-ratio:1.6;transform:translate(-50%,-50%);pointer-events:none;
+  background:radial-gradient(closest-side,rgba(207,180,138,.22),rgba(234,217,205,.12) 55%,transparent 100%);filter:blur(30px)}
+:root[data-theme=dark] .inv-glow{background:radial-gradient(closest-side,rgba(207,176,124,.14),rgba(90,62,44,.18) 55%,transparent 100%)}
+.inv-stage{position:relative;max-width:1100px;margin:clamp(50px,7vw,90px) auto 0;display:flex;align-items:flex-start;justify-content:center;gap:clamp(24px,3vw,48px)}
+.inv-price{display:grid;justify-items:center;gap:clamp(14px,2vw,22px);padding:0 clamp(0px,4vw,60px)}
+.inv-k{display:flex;align-items:center;gap:18px;font:500 12px/1 var(--sans);letter-spacing:.48em;text-transform:uppercase;color:var(--gold)}
+.inv-k i{display:block;width:44px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}.inv-k i:last-child{transform:scaleX(-1)}
+.inv-v{font:500 clamp(84px,15vw,210px)/.86 var(--serif);color:var(--ink);letter-spacing:-.015em;white-space:nowrap;
+  background:linear-gradient(180deg,var(--ink) 30%,var(--ink2) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.inv-v small{font-size:.24em;vertical-align:.95em;margin-right:.22em;letter-spacing:.04em;-webkit-text-fill-color:var(--ink2)}
+.inv-v sup{font-size:.34em;vertical-align:.95em;-webkit-text-fill-color:var(--ink2)}
+.inv-rule{width:min(360px,60vw);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.inv-alt{font:italic 400 clamp(24px,2.6vw,34px)/1.2 var(--serif);color:var(--ink2)}
+.inv-alt b{font-weight:500;font-style:normal;color:var(--ink)}
+.inv-seal{position:relative;flex:none;margin-top:-18px;width:220px;padding:24px 22px 22px;border-radius:28px;display:grid;justify-items:center;gap:8px;text-align:center;transform:rotate(3deg)}
+.seal-k{font:500 10px/1 var(--sans);letter-spacing:.42em;text-transform:uppercase;color:var(--gold)}
+.seal-v{font:500 52px/1 var(--serif);color:var(--ink);white-space:nowrap}
+.seal-v small{font-size:.36em;vertical-align:.7em;margin-right:.18em;color:var(--ink2)}
+.seal-v sup{font-size:.42em;vertical-align:.75em;color:var(--ink2)}
+.seal-n{font:400 11.5px/1.45 var(--sans);color:var(--mute);border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
+.invest .lead{margin:clamp(46px,6vw,70px) auto 0;text-align:center}
+.btn-deepglass{color:#F6EEE3;--lg-top:rgba(90,62,44,.92);--lg-mid:rgba(58,37,23,.9);--lg-bot:rgba(40,25,16,.94);--lg-rim-top:rgba(255,232,200,.45);--lg-inner:rgba(255,228,190,.25);--lg-spec:rgba(255,232,200,.22);--lg-r1:rgba(255,236,205,.8);--lg-r2:rgba(207,176,124,.6);
+  min-height:58px;padding:0 34px}
+:root[data-theme=dark] .btn-deepglass{color:#2A1B12;--lg-top:rgba(246,236,220,.95);--lg-mid:rgba(232,214,188,.92);--lg-bot:rgba(214,190,156,.94);--lg-rim-top:rgba(255,255,255,.9);--lg-inner:rgba(255,255,255,.7);--lg-spec:rgba(255,255,255,.5);--lg-r1:#fff;--lg-r2:rgba(255,255,255,.7);--lg-blend:normal}
+.btn-deepglass svg{transition:transform .5s var(--ease)}.btn-deepglass:hover svg{transform:translateX(4px)}
+
+/* faixa IMERSÃO */
+.imersao{position:relative;overflow:hidden;height:clamp(56px,7vw,92px);display:flex;align-items:center;border-block:1px solid var(--line);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.imersao.deep{background:#2A1B12;border-color:rgba(207,176,124,.35);color:#EFE2CF}
+.imersao.light{background:linear-gradient(180deg,rgba(207,180,138,.14),rgba(207,180,138,.08));color:var(--ink2)}
+:root[data-theme=dark] .imersao.deep{background:#140E0B}
+.im-track{display:flex;width:max-content;will-change:transform}
+.im-set{display:flex;align-items:center;flex:none}
+.im-set b{font:500 clamp(22px,2.6vw,36px)/1 var(--serif);letter-spacing:.42em;padding-left:.42em;font-weight:500}
+.im-set i{font-style:normal;color:var(--gold);padding:0 clamp(26px,4vw,60px);font-size:14px}
+.imersao.deep .im-set i{color:#CFB07C}
+/* versão flutuante discreta (aparece só no meio da página, nunca cobre botões) */
+.imersao.mini{position:fixed;z-index:40;left:22px;top:50%;width:min(58vh,520px);height:34px;border-radius:999px;border:0;
+  transform-origin:0 0;transform:rotate(-90deg) translate(-50%,-14px);opacity:0;pointer-events:none;transition:opacity .7s var(--ease),transform .7s var(--ease);color:var(--ink2);
+  -webkit-mask-image:none;mask-image:none;display:none}
+.imersao.mini.show{opacity:1;transform:rotate(-90deg) translate(-50%,0)}
+/* só em telas largas, na margem lateral vazia: nunca cobre conteúdo */
+@media (min-width:1400px){.imersao.mini{display:flex}}
+.imersao.mini .im-track{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.imersao.mini b{font-size:13px;letter-spacing:.5em}.imersao.mini i{padding:0 18px;font-size:9px}
+@media (max-width:760px){
+  .inv-stage{flex-direction:column;align-items:center}
+  .inv-seal{transform:none;margin-top:44px;width:min(320px,100%)}
+  .inv-bgword{top:30px}
+}
+
 /* responsivo */
 @media (max-width:1080px){
   .forwho{grid-template-columns:repeat(2,minmax(0,1fr))}.forwho .glass:last-child{grid-column:1/-1}
@@ -340,6 +399,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
   .wa-float .tip{display:none}
 }
 @media (prefers-reduced-motion:reduce){
+  .imersao.mini{display:none}
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
   .rv{opacity:1;transform:none;filter:none}.mask{clip-path:none}
   .word{opacity:1;transform:none;filter:none}
@@ -460,6 +520,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
   </div>
 </section>
 
+<div class="imersao deep" aria-hidden="true"><div class="im-track"><span class="im-set"><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i></span><span class="im-set"><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i></span></div></div>
+
 <!-- EXPERIÊNCIA -->
 <section class="band" id="experiencia" style="padding-top:clamp(30px,4vw,60px)">
   <div class="wrap" id="conteudo">
@@ -534,21 +596,34 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
 </section>
 
 <!-- INVESTIMENTO -->
+<div class="imersao light" aria-hidden="true"><div class="im-track"><span class="im-set"><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i></span><span class="im-set"><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i></span></div></div>
 <section class="band invest" id="investimento">
-  <div class="wrap">
+  <div class="inv-bgword" aria-hidden="true" id="invWord">INVESTIMENTO</div>
+  <div class="inv-glow" aria-hidden="true"></div>
+  <svg class="thread inv-thread" style="inset:0;width:100%;height:100%" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+    <path data-draw="invest" d="M-20 560 C 240 520, 420 300, 640 330 S 980 520, 1220 300"/>
+  </svg>
+  <div class="wrap inv-in">
     <div class="eyebrow c rv">Investimento</div>
     <h2 class="rv d1" style="margin-top:22px">Sua vaga na <em>VÉRTIA.</em></h2>
-    <div class="prices">
-      <div class="price glass rv"><span class="x">12X</span><span class="v"><small>R$</small>283<sup>,33</sup></span></div>
-      <div class="price glass rv d1"><span class="k">À vista</span><span class="v"><small>R$</small>3.000<sup>,00</sup></span></div>
-      <div class="insc glass rv d2">
-        <div style="display:grid;gap:12px"><span class="k">Inscrição</span><span class="v"><small>R$</small>500<sup>,00</sup></span></div>
-        <hr><p>Esse valor é descontado do valor total no dia da mentoria.</p>
+
+    <div class="inv-stage">
+      <div class="inv-price rv d2">
+        <div class="inv-k"><i></i>À vista<i></i></div>
+        <div class="inv-v"><small>R$</small>3.000<sup>,00</sup></div>
+        <div class="inv-rule"></div>
+        <div class="inv-alt">ou <b>12x</b> de <b>R$ 283,33</b></div>
       </div>
+      <aside class="inv-seal glass rv d3">
+        <span class="seal-k">Inscrição</span>
+        <span class="seal-v"><small>R$</small>500<sup>,00</sup></span>
+        <span class="seal-n">Esse valor é descontado do valor total no dia da mentoria.</span>
+      </aside>
     </div>
+
     <p class="lead rv">Garanta a sua vaga e dê o próximo passo na sua evolução profissional.</p>
     <div class="ctas rv d1">
-      <a class="btn btn-solid" href="https://wa.me/5544999124497?text=Ol%C3%A1%2C%20Dra.%20Andrea!%20Quero%20fazer%20parte%20da%20V%C3%89RTIA." target="_blank" rel="noopener">Quero fazer parte da VÉRTIA</a>
+      <a class="btn btn-deepglass glass" href="https://wa.me/5544999124497?text=Ol%C3%A1%2C%20Dra.%20Andrea!%20Quero%20garantir%20minha%20vaga%20na%20V%C3%89RTIA." target="_blank" rel="noopener">Quero garantir minha vaga<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-glass glass" href="https://wa.me/5544999124497" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Falar com a Dra. Andrea</a>
     </div>
   </div>
@@ -579,6 +654,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
   </div>
 </footer>
 
+<div class="imersao mini glass" id="imFloat" aria-hidden="true"><div class="im-track"><span class="im-set"><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i></span><span class="im-set"><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i><b>IMERSÃO</b><i>•</i></span></div></div>
 <a class="wa-float glass" href="https://wa.me/5544999124497" target="_blank" rel="noopener" aria-label="Falar com a Dra. Andrea no WhatsApp"><svg><use href="#wa"/></svg><span class="tip glass">Falar com a Dra. Andrea</span></a>
 
 <script>
@@ -698,6 +774,31 @@ wa.addEventListener('pointerup',end);wa.addEventListener('pointercancel',end);
 // se arrastou, não abre o WhatsApp
 wa.addEventListener('click',e=>{if(moved){e.preventDefault();moved=false}});
 addEventListener('resize',()=>{if(wa.classList.contains('free')){const r=size();place(wa.classList.contains('on-left')?M:innerWidth-r.width-M,r.top)}});
+}
+
+// faixas IMERSÃO: loop linear perfeito; acelera levemente ao rolar para baixo; desacelera no hover (mouse)
+{
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const bands=[...document.querySelectorAll('.imersao')].map(el=>({el,tr:el.querySelector('.im-track'),x:0,w:0,vis:true,hover:false,base:el.classList.contains('mini')?26:42}));
+const measure=()=>bands.forEach(b=>{b.w=b.tr.firstElementChild.getBoundingClientRect().width});
+measure();addEventListener('resize',measure);document.fonts&&document.fonts.ready.then(measure);
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const b=bands.find(b=>b.el===e.target);if(b)b.vis=e.isIntersecting||b.el.classList.contains('mini')}));
+bands.forEach(b=>{vio.observe(b.el);if(matchMedia('(hover:hover)').matches){b.el.style.pointerEvents=b.el.classList.contains('mini')?'':'auto';b.el.addEventListener('mouseenter',()=>b.hover=true);b.el.addEventListener('mouseleave',()=>b.hover=false)}});
+let lastY=scrollY,boost=0,last=performance.now();
+addEventListener('scroll',()=>{const d=scrollY-lastY;lastY=scrollY;if(d>0)boost=Math.min(1,boost+d/260)},{passive:true});
+function tick(now){const dt=Math.min(.05,(now-last)/1000);last=now;boost*=Math.pow(.12,dt);
+  bands.forEach(b=>{if(!b.vis||!b.w)return;const sp=b.base*(b.hover?.45:1)*(1+boost*1.4);b.x-=sp*dt;if(b.x<=-b.w)b.x+=b.w;b.tr.style.transform=`translate3d(${b.x.toFixed(2)}px,0,0)`});
+  requestAnimationFrame(tick)}
+if(!reduce)requestAnimationFrame(tick);
+// flutuante: só aparece entre o fim do herói e o início do investimento, e nunca junto das faixas editoriais
+const mini=document.getElementById('imFloat'),inv=document.getElementById('investimento'),eds=[...document.querySelectorAll('.imersao:not(.mini)')];
+const upd=()=>{const past=scrollY>innerHeight*1.1;const r=inv.getBoundingClientRect();const before=r.top>innerHeight*.9;
+  const edVis=eds.some(e=>{const q=e.getBoundingClientRect();return q.bottom>0&&q.top<innerHeight});
+  mini.classList.toggle('show',past&&before&&!edVis)};
+addEventListener('scroll',upd,{passive:true});upd();
+// palavra INVESTIMENTO desliza com o scroll
+const word=document.getElementById('invWord');
+addEventListener('scroll',()=>{if(reduce)return;const r=inv.getBoundingClientRect();const t=(innerHeight-r.top)/(r.height+innerHeight);word.style.setProperty('--wx',((.5-t)*220).toFixed(1)+'px')},{passive:true});
 }
 </script>
 </body>
