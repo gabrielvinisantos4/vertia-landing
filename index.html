@@ -380,7 +380,15 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
 .map{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:16/11;padding:8px}
 .map iframe{display:block;width:100%;height:100%;border:0;border-radius:24px;filter:grayscale(.35) sepia(.22) saturate(.9) contrast(.98)}
 :root[data-theme=dark] .map iframe{filter:grayscale(.5) sepia(.25) brightness(.82) contrast(1.05)}
-.map-tag{position:absolute;left:22px;bottom:22px;display:flex;align-items:center;gap:12px;padding:12px 18px;border-radius:18px;pointer-events:none}
+.map-fb{position:absolute;inset:8px;border-radius:24px;overflow:hidden;display:grid;place-items:center;color:var(--ink2);
+  background:radial-gradient(120% 90% at 50% 40%,var(--bg2),var(--bg3))}
+.map-fb>svg{position:absolute;inset:0;width:100%;height:100%}
+.map-pin{position:relative;width:46px;height:46px;color:var(--gold);transform:translateY(-14px);filter:drop-shadow(0 8px 10px rgba(70,45,28,.3))}
+.map-pin svg{width:100%;height:100%}
+.map-open{position:absolute;top:58%;font:500 10.5px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--ink2)}
+.map iframe{position:relative;z-index:1}
+.map.noframe iframe{display:none}
+.map-tag{position:absolute;z-index:3;left:22px;bottom:22px;display:flex;align-items:center;gap:12px;padding:12px 18px;border-radius:18px;pointer-events:none}
 .map-tag i{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(180,141,85,.18);flex:none}
 .map-tag b{display:block;font:500 16px/1.2 var(--serif);letter-spacing:.08em;color:var(--ink)}
 .map-tag span{font:400 12px/1.4 var(--sans);color:var(--ink2)}
@@ -665,6 +673,17 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
       </div>
     </div>
     <div class="map glass rv d2">
+      <a class="map-fb" href="https://www.google.com/maps/search/?api=1&query=Rua+Pernambuco,+511,+Colorado+-+PR" target="_blank" rel="noopener" aria-label="Abrir a localização no Google Maps">
+        <svg viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-opacity=".22" stroke-width="10" stroke-linecap="round">
+            <path d="M-20 70 L420 40"/><path d="M-20 170 L420 150"/><path d="M-20 255 L420 245"/>
+            <path d="M80 -20 L60 300"/><path d="M200 -20 L190 300"/><path d="M320 -20 L330 300"/>
+          </g>
+          <g fill="none" stroke="currentColor" stroke-opacity=".12" stroke-width="4"><path d="M-20 120 L420 95"/><path d="M135 -20 L125 300"/><path d="M260 -20 L262 300"/></g>
+        </svg>
+        <span class="map-pin"><svg viewBox="0 0 24 24"><path d="M12 22s-7.5-6.6-7.5-12.2a7.5 7.5 0 0 1 15 0C19.5 15.4 12 22 12 22Z" fill="currentColor"/><circle cx="12" cy="9.8" r="2.8" fill="var(--bg)"/></svg></span>
+        <span class="map-open">Toque para abrir o mapa</span>
+      </a>
       <iframe title="Mapa: CT Clinic, Rua Pernambuco, 511, Colorado – PR" src="https://www.google.com/maps?q=Rua+Pernambuco,+511,+Colorado+-+PR&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       <div class="map-tag glass"><i></i><span><b>CT Clinic</b>Rua Pernambuco, 511 · Colorado – PR</span></div>
     </div>
@@ -843,6 +862,9 @@ next.addEventListener('click',()=>rail.scrollBy({left:step(),behavior:'smooth'})
 rail.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();next.click()}if(e.key==='ArrowLeft'){e.preventDefault();prev.click()}});
 upd();
 }
+
+// mapa: onde mapas externos são bloqueados (prévia do Claude), mostra o mapa ilustrado com link
+{const m=document.querySelector('.map');if(m&&/claude/.test(location.hostname))m.classList.add('noframe')}
 </script>
 </body>
 </html>
