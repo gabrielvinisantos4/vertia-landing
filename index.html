@@ -396,6 +396,30 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
 @media (max-width:600px){.map-tag{left:14px;right:14px;bottom:14px}}
 @media (max-width:600px){.btn{letter-spacing:.16em;padding:0 20px}}
 
+
+/* DÚVIDAS */
+.faq-in{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,100px);align-items:start}
+.faq-head{position:sticky;top:120px;display:grid;gap:0;justify-items:start}
+.faq h2{font-size:clamp(42px,5.4vw,80px)}
+.faq .lead{margin:22px 0 32px}
+.faq-list{display:grid;gap:12px}
+.qa{border-radius:20px;padding:0}
+.qa summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;
+  font:500 clamp(19px,1.7vw,23px)/1.3 var(--serif);color:var(--ink)}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:20px}
+.qa summary i{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);position:relative;transition:transform .6s var(--ease),background-color .6s var(--ease)}
+.qa summary i::before,.qa summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1px;background:var(--gold);transform:translate(-50%,-50%)}
+.qa summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .6s var(--ease)}
+.qa[open] summary i{transform:rotate(180deg)}
+.qa[open] summary i::after{transform:translate(-50%,-50%) rotate(0deg)}
+.qa-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+.qa[open] .qa-a{grid-template-rows:1fr}
+.qa-a p{overflow:hidden;padding:0 24px;font-size:15px;line-height:1.65;max-width:none}
+.qa[open] .qa-a p{padding-bottom:22px}
+.qa-a a{color:var(--ink);border-bottom:1px solid var(--gold)}
+@media (max-width:920px){.faq-in{grid-template-columns:1fr}.faq-head{position:static}}
+
 /* responsivo */
 @media (max-width:1080px){
   .forwho{grid-template-columns:repeat(2,minmax(0,1fr))}.forwho .glass:last-child{grid-column:1/-1}
@@ -464,7 +488,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
   </div>
 </header>
 <nav class="sheet glass" id="sheet" aria-label="Menu">
-  <a href="#mentoria">A Mentoria</a><a href="#dra-andrea">Dra. Andrea</a><a href="#experiencia">Experiência</a><a href="#conteudo">Conteúdo</a><a href="#investimento">Investimento</a>
+  <a href="#mentoria">A Mentoria</a><a href="#dra-andrea">Dra. Andrea</a><a href="#experiencia">Experiência</a><a href="#conteudo">Conteúdo</a><a href="#investimento">Investimento</a><a href="#duvidas">Dúvidas</a>
   <a href="https://wa.me/5544999124497" target="_blank" rel="noopener">Falar no WhatsApp</a>
 </nav>
 
@@ -690,6 +714,28 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
   </div>
 </section>
 
+<!-- DÚVIDAS -->
+<section class="band faq" id="duvidas">
+  <div class="wrap faq-in">
+    <div class="faq-head">
+      <div class="eyebrow rv">Dúvidas frequentes</div>
+      <h2 class="rv d1" style="margin-top:20px">Esclareça as suas <em>dúvidas.</em></h2>
+      <p class="lead rv d2">Tudo o que você precisa saber antes de garantir a sua vaga na VÉRTIA.</p>
+      <a class="btn btn-glass glass rv d3" href="https://wa.me/5544999124497?text=Ol%C3%A1%2C%20Dra.%20Andrea!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20mentoria%20V%C3%89RTIA." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Tirar dúvidas no WhatsApp</a>
+    </div>
+    <div class="faq-list">
+      <details class="qa glass rv"><summary><span>Para quem é a mentoria VÉRTIA?</span><i aria-hidden="true"></i></summary><div class="qa-a"><p>Para cirurgiões-dentistas que não trabalham com resina e desejam começar, que já trabalham e querem aperfeiçoar a técnica, que buscam mais naturalidade e um olhar mais estético, mais segurança na execução dos casos e mais faturamento com facetas em resina composta.</p></div></details>
+      <details class="qa glass rv"><summary><span>Preciso já trabalhar com resina composta?</span><i aria-hidden="true"></i></summary><div class="qa-a"><p>Não. A mentoria também é para quem ainda não trabalha com resina e deseja começar, com toda a base de planejamento, anatomia, seleção de cor e estratificação no primeiro dia.</p></div></details>
+      <details class="qa glass rv"><summary><span>Como funcionam os dois dias?</span><i aria-hidden="true"></i></summary><div class="qa-a"><p>No <b>Dia 01 — Imersão Teórica</b> você estuda planejamento estético, anatomia dental aplicada às facetas, seleção de resinas e percepção de cor, estratificação, escultura, acabamento e polimento, além da discussão de casos clínicos. No <b>Dia 02 — Imersão Clínica</b> você acompanha a execução clínica de 10 facetas em resina composta pela Dra. Andrea, observando cada etapa e tirando dúvidas em tempo real.</p></div></details>
+      <details class="qa glass rv"><summary><span>Como é o acompanhamento depois da mentoria?</span><i aria-hidden="true"></i></summary><div class="qa-a"><p>São 06 meses de acompanhamento: suporte individual pelo WhatsApp particular da Dra. Andrea, discussão de dúvidas sobre anatomia, cor, acabamento e polimento, envio de fotografias dos seus casos para planejarem juntas e orientação sobre as dificuldades na execução das facetas.</p></div></details>
+      <details class="qa glass rv"><summary><span>Existe algum bônus?</span><i aria-hidden="true"></i></summary><div class="qa-a"><p>Sim. O bônus exclusivo <b>Posicionamento e Autoridade</b>: como apresentar seus casos nas redes sociais, construir autoridade na Odontologia Estética, fazer fotografias de qualidade e comunicar o seu trabalho de forma profissional e estratégica.</p></div></details>
+      <details class="qa glass rv"><summary><span>Qual é o investimento e como posso pagar?</span><i aria-hidden="true"></i></summary><div class="qa-a"><p>R$ 3.000,00 à vista ou em 12x de R$ 283,33. A inscrição é de R$ 500,00, valor que é descontado do total no dia da mentoria.</p></div></details>
+      <details class="qa glass rv"><summary><span>Como garanto a minha vaga?</span><i aria-hidden="true"></i></summary><div class="qa-a"><p>Fale com a Dra. Andrea pelo WhatsApp <a href="https://wa.me/5544999124497" target="_blank" rel="noopener">+55 44 99912-4497</a> para confirmar as datas, a disponibilidade de vagas e realizar a inscrição.</p></div></details>
+      <details class="qa glass rv"><summary><span>Onde acontece a mentoria?</span><i aria-hidden="true"></i></summary><div class="qa-a"><p>Na CT Clinic, Rua Pernambuco, 511, Colorado – PR. O mapa com a localização está logo acima.</p></div></details>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL -->
 <section class="final">
   <svg class="thread" style="inset:0;width:100%;height:100%" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
@@ -865,6 +911,9 @@ upd();
 
 // mapa: onde mapas externos são bloqueados (prévia do Claude), mostra o mapa ilustrado com link
 {const m=document.querySelector('.map');if(m&&/claude/.test(location.hostname))m.classList.add('noframe')}
+
+// dúvidas: abre suave e mantém uma aberta por vez
+{const qs=[...document.querySelectorAll('.qa')];qs.forEach(d=>d.addEventListener('toggle',()=>{if(d.open)qs.forEach(o=>{if(o!==d)o.open=false})}))}
 </script>
 </body>
 </html>
