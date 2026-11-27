@@ -372,6 +372,22 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
   .inv-bgword{top:30px}
 }
 
+
+/* LOCALIZAÇÃO */
+.local-in{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.local h2{font-size:clamp(46px,6vw,88px)}
+.local-addr{font:400 clamp(22px,2.2vw,30px)/1.35 var(--serif);color:var(--ink2);margin:22px 0 34px}
+.map{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:16/11;padding:8px}
+.map iframe{display:block;width:100%;height:100%;border:0;border-radius:24px;filter:grayscale(.35) sepia(.22) saturate(.9) contrast(.98)}
+:root[data-theme=dark] .map iframe{filter:grayscale(.5) sepia(.25) brightness(.82) contrast(1.05)}
+.map-tag{position:absolute;left:22px;bottom:22px;display:flex;align-items:center;gap:12px;padding:12px 18px;border-radius:18px;pointer-events:none}
+.map-tag i{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(180,141,85,.18);flex:none}
+.map-tag b{display:block;font:500 16px/1.2 var(--serif);letter-spacing:.08em;color:var(--ink)}
+.map-tag span{font:400 12px/1.4 var(--sans);color:var(--ink2)}
+@media (max-width:920px){.local-in{grid-template-columns:1fr}.map{aspect-ratio:4/3.4}}
+@media (max-width:600px){.map-tag{left:14px;right:14px;bottom:14px}}
+@media (max-width:600px){.btn{letter-spacing:.16em;padding:0 20px}}
+
 /* responsivo */
 @media (max-width:1080px){
   .forwho{grid-template-columns:repeat(2,minmax(0,1fr))}.forwho .glass:last-child{grid-column:1/-1}
@@ -636,6 +652,25 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
   </div>
 </section>
 
+<!-- LOCALIZAÇÃO -->
+<section class="band local" id="local">
+  <div class="wrap local-in">
+    <div class="local-txt">
+      <div class="eyebrow rv">Local da mentoria</div>
+      <h2 class="rv d1" style="margin-top:20px">CT <em>Clinic</em></h2>
+      <p class="local-addr rv d2">Rua Pernambuco, 511<br>Colorado – PR</p>
+      <div class="ctas rv d3">
+        <a class="btn btn-solid" href="https://www.google.com/maps/search/?api=1&query=Rua+Pernambuco,+511,+Colorado+-+PR" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Abrir no Google Maps</a>
+        <a class="btn btn-glass glass" href="https://waze.com/ul?q=Rua%20Pernambuco%20511%20Colorado%20PR&navigate=yes" target="_blank" rel="noopener">Ir com Waze</a>
+      </div>
+    </div>
+    <div class="map glass rv d2">
+      <iframe title="Mapa: CT Clinic, Rua Pernambuco, 511, Colorado – PR" src="https://www.google.com/maps?q=Rua+Pernambuco,+511,+Colorado+-+PR&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <div class="map-tag glass"><i></i><span><b>CT Clinic</b>Rua Pernambuco, 511 · Colorado – PR</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL -->
 <section class="final">
   <svg class="thread" style="inset:0;width:100%;height:100%" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
@@ -657,6 +692,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 110px}
   <div class="wrap foot">
     <div><div class="brand">VÉRTIA</div><p>A evolução da estética natural.</p></div>
     <p>Dra. Andrea Tadeu<br>Facetas em Resina Composta</p>
+    <p>Local da mentoria<br>CT Clinic · Rua Pernambuco, 511<br>Colorado – PR</p>
     <p>WhatsApp<br><a href="https://wa.me/5544999124497" target="_blank" rel="noopener">+55 44 99912-4497</a></p>
   </div>
 </footer>
